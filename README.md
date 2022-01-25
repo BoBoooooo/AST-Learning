@@ -1,5 +1,7 @@
 # AST 学习记录
 
+![img](https://p6.music.126.net/obj/wo3DlcOGw6DClTvDisK1/12850755151/8918/c2b8/98c5/a8978b5caf1170e9ac0ae67d1b0de6ab.png)
+
 AST 操作示例代码
 
 - 简单 babel 转换示例：[normal](./normal)
@@ -24,6 +26,8 @@ https://astexplorer.net/
 
 https://juejin.cn/post/6984945589859385358#heading-6
 https://jishuin.proginn.com/p/763bfbd5d305
+
+https://babel.docschina.org/docs/en/babel-types
 
 - Specifier 关键字
 - Declaration 声明
@@ -245,7 +249,9 @@ export default (props) => (
 );
 ```
 
-## babel 插件
+
+## 具体应用场景
+### babel 插件
 
 ```javascript
 // 定义插件
@@ -274,3 +280,15 @@ module.exports = {
   ],
 };
 ```
+
+### babel-plugin-import
+
+按需引入
+
+### LowCode可视化编码
+
+通过AST方式驱动,结合拖拽操作,同步更新代码
+
+
+### eslint
+
