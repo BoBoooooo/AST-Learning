@@ -39,21 +39,23 @@ https://babel.docschina.org/docs/en/babel-types
 
 参考文章: https://toutiao.io/posts/yo2lcsa/preview
 
-### Visitor(path, state) 
-path对象
-  - 方法
-    - replaceWith 单节点替换当前节点
-    - replaceWithMultiple 多节点替换当前节点
-    - findParent 搜索父节点
-    - getSibling 获取兄弟节点
-    - insertBefore 兄弟节点之前插入节点
-    - insertAfter 兄弟节点之后插入节点
-    - remove 移除当前节点
-  - 属性
-    - node 节点
-    - parent 父节点
-    - parentPath 父节点 path
-    - scope 作用域
+### Visitor(path, state)
+
+path 对象
+
+- 方法
+  - replaceWith 单节点替换当前节点
+  - replaceWithMultiple 多节点替换当前节点
+  - findParent 搜索父节点
+  - getSibling 获取兄弟节点
+  - insertBefore 兄弟节点之前插入节点
+  - insertAfter 兄弟节点之后插入节点
+  - remove 移除当前节点
+- 属性
+  - node 节点
+  - parent 父节点
+  - parentPath 父节点 path
+  - scope 作用域
 
 ## 类型判断
 
@@ -123,6 +125,7 @@ if (types.isExpressionStatement(n2)) {
 - JSX
 
   - JSXElement
+
     ```javascript
     types.jsxElement(
       types.jsxOpeningElement(types.jsxIdentifier("Text"), []),
@@ -145,6 +148,8 @@ if (types.isExpressionStatement(n2)) {
         [types.jsxExpressionContainer(types.identifier("props.age"))]
       ),
     ]);
+    ```
+
   ```
 
   - JSX AST 树结构
@@ -157,8 +162,10 @@ if (types.isExpressionStatement(n2)) {
       - name `JSXIdentifier` 闭合标签名
     - children `JSXText|JSXElement`
       - 递归嵌套
+  ```
 
 ## 声明
+
 - 变量声明 variableDeclaration
   ```javascript
   types.functionDeclaration(
@@ -188,7 +195,7 @@ if (types.isExpressionStatement(n2)) {
   );
   ```
 
-## 导出React函数式组件
+## 导出 React 函数式组件
 
 ```javascript
 types.program([
@@ -249,8 +256,8 @@ export default (props) => (
 );
 ```
 
-
 ## 具体应用场景
+
 ### babel 插件
 
 ```javascript
@@ -285,10 +292,8 @@ module.exports = {
 
 按需引入
 
-### LowCode可视化编码
+### LowCode 可视化编码
 
-通过AST方式驱动,结合拖拽操作,同步更新代码
-
+通过 AST 方式驱动,结合拖拽操作,同步更新代码
 
 ### eslint
-
