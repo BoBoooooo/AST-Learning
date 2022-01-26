@@ -206,7 +206,6 @@ types.program([
   t.importDeclaration(
     [
       t.importSpecifier(t.identifier("Button"), t.identifier("Button")),
-      t.importSpecifier(t.identifier("Button"), t.identifier("Button")),
     ],
     t.stringLiteral("antd")
   ),
@@ -247,7 +246,7 @@ Output:
 
 ```javascript
 import React from "react";
-import Button from "antd";
+import { Button } from "antd";
 
 export default (props) => (
   <Component onClick={handleClick}>
