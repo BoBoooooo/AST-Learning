@@ -11,6 +11,13 @@ const log = (node) => {
 };
 log(t.numericLiteral(123));
 log(t.identifier("{ abc }"));
+
+// const a = 1;
+log(
+  t.variableDeclaration("const", [
+    t.variableDeclarator(t.identifier("a"), t.numericLiteral(1)),
+  ])
+);
 log(
   t.program([
     t.importDeclaration(
