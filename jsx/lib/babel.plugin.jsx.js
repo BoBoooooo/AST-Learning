@@ -12,12 +12,12 @@ const log = (node) => {
 log(t.numericLiteral(123));
 log(t.identifier("{ abc }"));
 
-// const a = 1;
-log(
-  t.variableDeclaration("const", [
-    t.variableDeclarator(t.identifier("a"), t.numericLiteral(1)),
-  ])
-);
+  // const a = 1;
+  log(
+    t.variableDeclaration("const", [
+      t.variableDeclarator(t.identifier("a"), t.numericLiteral(1)),
+    ])
+  );
 log(
   t.program([
     t.importDeclaration(
@@ -25,40 +25,42 @@ log(
       t.stringLiteral("react")
     ),
     t.importDeclaration(
-      [
-        t.importSpecifier(t.identifier("Button"), t.identifier("Button")),
-        t.importSpecifier(t.identifier("Button"), t.identifier("Button")),
-      ],
+      [t.importSpecifier(t.identifier("Button"), t.identifier("Button"))],
       t.stringLiteral("antd")
     ),
     t.exportDefaultDeclaration(
       t.arrowFunctionExpression(
         [t.identifier("props")],
-        t.jsxElement(
-          t.jsxOpeningElement(t.jsxIdentifier("Component"), [
-            t.jsxAttribute(
-              t.jsxIdentifier("onClick"),
-              t.jSXExpressionContainer(t.identifier("handleClick"))
+        t.blockStatement([
+          t.variableDeclaration("const", [
+            t.variableDeclarator(
+              t.identifier("handleClick"),
+              t.arrowFunctionExpression(
+                [t.identifier("ev")],
+                t.blockStatement([
+                  t.expressionStatement(
+                    t.callExpression(t.identifier("console.log"), [
+                      t.identifier("ev"),
+                    ])
+                  ),
+                ])
+              )
             ),
           ]),
-          t.jsxClosingElement(t.jsxIdentifier("Component")),
-          [
+          t.returnStatement(
             t.jsxElement(
-              t.jsxOpeningElement(t.jsxIdentifier("Image"), [
+              t.jsxOpeningElement(t.jsxIdentifier("Button"), [
                 t.jsxAttribute(
-                  t.jsxIdentifier("src"),
-                  t.stringLiteral(
-                    "https://image1.suning.cn/uimg/cms/img/159642507148437980.png"
-                  )
+                  t.jsxIdentifier("onClick"),
+                  t.jSXExpressionContainer(t.identifier("handleClick"))
                 ),
               ]),
-              t.jsxClosingElement(t.jsxIdentifier("Image")),
-              [],
-              true
-            ),
-          ],
-          false
-        )
+              t.jsxClosingElement(t.jsxIdentifier("Button")),
+              [t.jsxExpressionContainer(t.identifier("props.name"))],
+              false
+            )
+          ),
+        ])
       )
     ),
   ])
