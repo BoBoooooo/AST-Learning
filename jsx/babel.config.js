@@ -1,6 +1,4 @@
 module.exports = {
-    presets: [],
-    plugins: [
-        require('./lib/babel.plugin.jsx.js')
-    ]
+  presets: ["@babel/preset-env"],
+  plugins: [require("./lib/babel.plugin.jsx.js")],
 };

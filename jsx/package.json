@@ -1,11 +1,16 @@
 {
   "scripts": {
-    "test": "babel test/index.jsx --out-file test/dist.js"
+    "test": "babel test/index.jsx --out-file test/dist.js",
+    "demo": "babel-node ./test/demo.js"
   },
   "dependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
     "@babel/helper-plugin-utils": "^7.0.0",
     "@babel/plugin-syntax-jsx": "^7.0.0"
+  },
+  "devDependencies": {
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11"
   }
 }
